@@ -8,6 +8,7 @@ func game_over():
 	for n in get_children():
 		if n is RigidBody2D:
 			remove_child(n)
+			n.free()
 
 	$ScoreTimer.stop()
 	$MobTimer.stop()

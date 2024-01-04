@@ -3,14 +3,12 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 
-func _ready():
-	pass
-
-func _process(_delta):
-	pass
-
-
 func game_over():
+	# remove monsters
+	for n in get_children():
+		if n is RigidBody2D:
+			remove_child(n)
+
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
